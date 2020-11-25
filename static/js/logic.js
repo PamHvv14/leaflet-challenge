@@ -13,11 +13,9 @@ var myMap = L.map("map", {
     accessToken: API_KEY
   }).addTo(myMap);
   
-  // Define a markerSize function that will give each city a different radius based on its population
-  function markerSize(population) {
-    return population / 40;
-  }
-  
+  // Store URL
+  var earthquakes = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
+
   // Each city object contains the city's name, location and population
   var cities = [
     {
