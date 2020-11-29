@@ -4,7 +4,7 @@ var earthquakes_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary
 
 
 // Perform a GET request to the query URL
-d3.json(queryUrl, function(data) {
+d3.json(earthquakes_url, function(data) {
   // Once we get a response, send the data.features object to the createMap function
   createMap(data.features);
 });
@@ -19,12 +19,12 @@ function createMap(earthquakeData) {
         L.circleMarker([feature.geometry.coordinates[1],feature.geometry.coordinates[0]],{
             radius: magCheck(feature.properties.mag),
             stroke: true,
-            color: 'black',
+            color: 'white',
             opacity: 1,
             weight: 0.5,
             fill: true,
             fillColor: magColor(feature.properties.mag),
-            fillOpacity: 0.9   
+            fillOpacity: 0.8   
         })
         .bindPopup("<h1> Magnitude : " + feature.properties.mag +
         "</h1><hr><h3>" + feature.properties.place +
@@ -78,11 +78,11 @@ legend.addTo(myMap);
 
      function magColor(mag) {
       var color = "";
-      if (mag <= 2) { color = "#ffffb2"; }
-      else if (mag <= 3) {color = "#fecc5c"; }
-      else if (mag <= 4) { color = "#fd8d3c"; }
-      else if (mag <= 5) {color = "#f03b20"; }
-      else { color = "#bd0026"; }
+      if (mag <= 2) { color = "#FC4E2A"; }
+      else if (mag <= 3) {color = "#CB2B3E"; }
+      else if (mag <= 4) { color = "#2A81CB"; }
+      else if (mag <= 5) {color = "#9C2BCB"; }
+      else { color = "#FFD326"; }
     
     return color;
     
@@ -91,8 +91,8 @@ legend.addTo(myMap);
 // negative magnitudes, which obviously can't be used for setting the circleMarker radius)
 function magCheck(mag){
   if (mag <= 1){
-      return 8
+      return 4
   }
-  return mag * 8;
+  return mag * 4;
 };
 }
