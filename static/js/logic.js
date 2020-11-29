@@ -47,7 +47,7 @@ function createMap(earthquakeData) {
     maxZoom: 18,
     zoomOffset: -1,
     id: "mapbox/streets-v11",
-    accessToken:  "pk.eyJ1IjoicGFtZWxhMTQiLCJhIjoiY2toZTNvNmE0MGw2bjJ0bzI2bDZueHVoNSJ9.gwlPwxzhBSxgCLelb0g_Lw"
+    accessToken:  "***"
   });
 
   var myMap = L.map("map", {
